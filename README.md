@@ -133,7 +133,7 @@ Contributions are welcome! Follow these steps to submit new AR remote assistance
 
 1. 🍴 **Fork** the repository.
 2. 📝 **Add/edit** entries in `README.md` maintaining table/list structure and formatting.
-3. 🔗 Include project title, official website/GitHub link, exact star badge, license, and brief description.
+3. 🔗 Include project title, official website/GitHub link, exact Stars_Badge, license, and brief description.
 4. 🚀 Submit a **Pull Request** with a descriptive summary of your changes.
 
 ---
