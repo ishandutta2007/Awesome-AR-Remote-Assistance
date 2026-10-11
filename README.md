@@ -138,19 +138,20 @@ Contributions are welcome! Follow these steps to submit new AR remote assistance
 
 ---
 
-## 📊 Star History
-
+##  Star History
 [![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-AR-Remote-Assistance&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-AR-Remote-Assistance&type=date&legend=top-left)
 
 ---
 
 ## 🤝 Support & Sponsorship
 
-If you find this AR remote assistance repository useful, please consider supporting the project:
+Thank you so much for exploring and supporting **Awesome-AR-Remote-Assistance**! 🙌
 
-- ⭐ **Star** this repository to increase visibility!
-- 🔀 **Fork** and share with fellow AR engineers, field service leaders, and open-source advocates.
-- ☕ **Sponsor & Buy Me a Coffee**: Support ongoing open-source curation via the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007).
+If you find this curated collection of AR remote assistance platforms, WebRTC frameworks, and spatial guidance tools helpful, please consider supporting the project:
+
+- ⭐ **Star** this repository to help other developers and AR engineers discover it!
+- 🔀 **Fork** and share with your team, network, and the broader XR community.
+- ☕ **Buy Me a Coffee / Sponsor**: Support continuous curation, market monitoring, and updates via the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007).
 
 ---
 

@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f24" />
+      <stop offset="50%" stop-color="#0e1738" />
+      <stop offset="100%" stop-color="#050814" />
+    </linearGradient>
+
+    <!-- Gradient Accents -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#9333ea" stop-opacity="0.25" />
+    </linearGradient>
+
+    <linearGradient id="hudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#38bdf8" stroke-width="0.7" stroke-opacity="0.12" />
+      <circle cx="40" cy="40" r="1" fill="#818cf8" fill-opacity="0.25" />
+    </pattern>
+
+    <!-- Filter for Holographic Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      /* CSS Keyframe Animations */
+      @keyframes radarSweep {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes floatAlt {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(8px); }
+      }
+      @keyframes pulseRing {
+        0% { r: 35px; opacity: 0.8; }
+        50% { r: 75px; opacity: 0.2; }
+        100% { r: 35px; opacity: 0.8; }
+      }
+      @keyframes targetPulse {
+        0%, 100% { stroke-dashoffset: 0; opacity: 0.9; }
+        50% { stroke-dashoffset: 20; opacity: 0.4; }
+      }
+      @keyframes ping {
+        0% { r: 2; opacity: 1; }
+        100% { r: 22; opacity: 0; }
+      }
+      @keyframes scanline {
+        0% { transform: translateY(-40px); opacity: 0; }
+        50% { opacity: 0.4; }
+        100% { transform: translateY(380px); opacity: 0; }
+      }
+      @keyframes dashMove {
+        to { stroke-dashoffset: -40; }
+      }
+
+      .radar-sweep {
+        transform-origin: 1040px 180px;
+        animation: radarSweep 10s linear infinite;
+      }
+      .hud-float-1 {
+        animation: floatSlow 6s ease-in-out infinite;
+      }
+      .hud-float-2 {
+        animation: floatAlt 7s ease-in-out infinite;
+      }
+      .scan-line {
+        animation: scanline 7s ease-in-out infinite;
+      }
+      .spatial-ring {
+        animation: pulseRing 5s ease-in-out infinite;
+      }
+      .dash-flow {
+        stroke-dasharray: 6 6;
+        animation: dashMove 3s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- 1. Background Layers -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" rx="16" fill="url(#grid)" />
+
+  <!-- Animated Scanline across canvas -->
+  <line x1="0" y1="0" x2="1200" y2="0" stroke="#38bdf8" stroke-width="2" class="scan-line" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="200" cy="100" r="140" fill="#38bdf8" fill-opacity="0.07" filter="url(#glow)" />
+  <circle cx="1020" cy="220" r="160" fill="#a855f7" fill-opacity="0.08" filter="url(#glow)" />
+  <circle cx="600" cy="300" r="180" fill="#6366f1" fill-opacity="0.06" filter="url(#glow)" />
+
+  <!-- 2. Dynamic AR Spatial Visuals (Left & Right Flanks) -->
+  <!-- Left AR Crosshair & Spatial Tracking Anchor -->
+  <g class="hud-float-1" transform="translate(100, 180)">
+    <!-- Spatial Ring Anchor -->
+    <ellipse cx="0" cy="0" rx="65" ry="32" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.4" class="dash-flow" />
+    <ellipse cx="0" cy="0" rx="42" ry="20" fill="none" stroke="#818cf8" stroke-width="1.2" stroke-opacity="0.6" />
+    <circle cx="0" cy="0" r="4" fill="#38bdf8" filter="url(#softGlow)" />
+    <!-- Ping effect -->
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.5" />
+    <!-- Reticle corner brackets -->
+    <path d="M -30 -30 L -20 -30 M -30 -30 L -30 -20" stroke="#38bdf8" stroke-width="2" fill="none" />
+    <path d="M 30 -30 L 20 -30 M 30 -30 L 30 -20" stroke="#38bdf8" stroke-width="2" fill="none" />
+    <path d="M -30 30 L -20 30 M -30 30 L -30 20" stroke="#38bdf8" stroke-width="2" fill="none" />
+    <path d="M 30 30 L 20 30 M 30 30 L 30 20" stroke="#38bdf8" stroke-width="2" fill="none" />
+    <!-- Spatial Annotation Tag -->
+    <rect x="42" y="-24" width="75" height="18" rx="3" fill="#0369a1" fill-opacity="0.35" stroke="#38bdf8" stroke-width="0.8" />
+    <text x="48" y="-11" fill="#7dd3fc" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="9" font-weight="600" letter-spacing="1">ANCHOR: 3D</text>
+  </g>
+
+  <!-- Right AR HUD Compass / Radar / Telepresence Target -->
+  <g transform="translate(1040, 180)">
+    <!-- Background circular radar grid -->
+    <circle cx="0" cy="0" r="90" fill="none" stroke="#818cf8" stroke-width="1" stroke-opacity="0.25" />
+    <circle cx="0" cy="0" r="65" fill="none" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.3" stroke-dasharray="4 6" />
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#c084fc" stroke-width="1" stroke-opacity="0.4" />
+    <circle cx="0" cy="0" r="5" fill="#38bdf8" filter="url(#softGlow)" />
+    <!-- Rotating Sweep Beam -->
+    <path d="M 0 0 L 80 -40 A 90 90 0 0 1 90 0 Z" fill="url(#hudGrad)" class="radar-sweep" />
+    <!-- Radar tick lines -->
+    <line x1="-95" y1="0" x2="95" y2="0" stroke="#38bdf8" stroke-width="0.8" stroke-opacity="0.25" />
+    <line x1="0" y1="-95" x2="0" y2="95" stroke="#38bdf8" stroke-width="0.8" stroke-opacity="0.25" />
+    <!-- Target Marker -->
+    <g class="hud-float-2" transform="translate(35, -45)">
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#f43f5e" stroke-width="1.8" filter="url(#softGlow)" />
+      <circle cx="0" cy="0" r="3" fill="#f43f5e" />
+      <text x="14" y="4" fill="#fda4af" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="8.5" font-weight="600" letter-spacing="0.5">EXPERT POINTER</text>
+    </g>
+  </g>
+
+  <!-- Tech accent lines (HUD framing) -->
+  <path d="M 40 40 L 90 40 L 105 55 M 1160 40 L 1110 40 L 1095 55" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.5" />
+  <path d="M 40 320 L 90 320 L 105 305 M 1160 320 L 1110 320 L 1095 305" fill="none" stroke="#818cf8" stroke-width="1.5" stroke-opacity="0.5" />
+
+  <!-- 3. Foreground Content (Title, Badges, Highlights - Centered & Unobstructed) -->
+  <!-- Top Category Pill -->
+  <g transform="translate(600, 52)">
+    <rect x="-165" y="-14" width="330" height="28" rx="14" fill="url(#badgeGrad)" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.6" filter="url(#softGlow)" />
+    <circle cx="-145" cy="0" r="4" fill="#10b981">
+      <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="-132" y="4" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">AUGMENTED REALITY &amp; SPATIAL ASSISTANCE</text>
+  </g>
+
+  <!-- Main Title -->
+  <g transform="translate(600, 130)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="-0.5" fill="url(#titleGrad)" filter="url(#softGlow)">
+      Awesome AR Remote Assistance
+    </text>
+  </g>
+
+  <!-- Subtitle -->
+  <g transform="translate(600, 180)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16.5" font-weight="400" fill="#cbd5e1" letter-spacing="0.2">
+      Curated Platforms, Frameworks &amp; Telepresence Tools for Field Guidance &amp; XR Collaboration
+    </text>
+  </g>
+
+  <!-- Feature Pills / Badges (Static in foreground, crystal clear) -->
+  <g transform="translate(600, 245)">
+    <!-- Pill 1: WebRTC Video -->
+    <g transform="translate(-320, 0)">
+      <rect x="-65" y="-16" width="130" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#7dd3fc" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="600">📡 WebRTC Video</text>
+    </g>
+
+    <!-- Pill 2: 3D Spatial Anchors -->
+    <g transform="translate(-160, 0)">
+      <rect x="-75" y="-16" width="150" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#818cf8" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="600">🎯 Spatial Anchors</text>
+    </g>
+
+    <!-- Pill 3: Smart Glasses -->
+    <g transform="translate(15, 0)">
+      <rect x="-75" y="-16" width="150" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#c084fc" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#d8b4fe" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="600">🥽 Smart Glasses</text>
+    </g>
+
+    <!-- Pill 4: Open Source XR -->
+    <g transform="translate(185, 0)">
+      <rect x="-75" y="-16" width="150" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#34d399" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#6ee7b7" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="600">🔓 Open-Source XR</text>
+    </g>
+
+    <!-- Pill 5: Enterprise Ready -->
+    <g transform="translate(340, 0)">
+      <rect x="-60" y="-16" width="120" height="32" rx="16" fill="#1e293b" fill-opacity="0.85" stroke="#f472b6" stroke-width="1" stroke-opacity="0.6" />
+      <text x="0" y="5" text-anchor="middle" fill="#fbcfe8" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="12" font-weight="600">🏢 Enterprise</text>
+    </g>
+  </g>
+
+  <!-- Bottom Metadata line -->
+  <g transform="translate(600, 310)">
+    <text text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11.5" font-weight="500" fill="#64748b" letter-spacing="1">
+      HoloLens 2 • Meta Quest • Magic Leap • WebXR • ARCore • ARKit • Android &amp; iOS
+    </text>
+  </g>
+</svg>
